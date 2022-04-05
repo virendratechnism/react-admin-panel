@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./style.scss"; // main file :: Development
 // import "./style.min.css"; // minified file :: Production
 
@@ -18,9 +18,18 @@ const LoginPage = () => {
 	const dispatch = useDispatch();
 
 	const navigate = useNavigate();
-
+	
 	const companyName = "TaxPatra";
 	const passwordInput = useRef(null);
+	
+	useEffect(() => {
+		const authState = localStorage.getItem("isLoggedIn");
+		
+		if (authState) {
+			navigate("/home");
+		}
+	}, []);
+
 
 	const togglePassword = (e) => {
 		if (e.target.checked === true) passwordInput.current.type = "text";
@@ -32,6 +41,7 @@ const LoginPage = () => {
 			e.preventDefault();	
 			navigate("/home");
 			dispatch(logIn());
+			localStorage.setItem("isLoggedIn", true);
 		} else {
 			e.preventDefault();	
 

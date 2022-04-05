@@ -33,7 +33,16 @@ import LoginPage from "./pages/Login/Login";
 
 const App = () => {
 	const openSweat = useSelector((state) => state.alertBox.openSweat);
+
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		const authState = localStorage.getItem("isLoggedIn");
+
+		if (authState) {
+			dispatch(logIn());
+		}
+	})
 
 	return (
 		<>
