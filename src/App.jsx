@@ -51,7 +51,7 @@ const App = () => {
 				setTimeout(() => {
 					swal({
 						title: "Order no Dispatched",
-						text: "Order No is : XXX",
+						text: "Order No is : XXXX",
 						button: true,
 						buttonText: "Action",
 						dangerMode: true,
@@ -59,7 +59,7 @@ const App = () => {
 						icon: "warning",
 					});
 					dispatch(hide());
-				}, 5000)}
+				}, 1000)}
 
 			<RoutingHandler />
 		</>
@@ -108,9 +108,9 @@ const RoutingHandler = () => {
 							path="/settings/billing"
 							element={<SettingsBilling />}
 						/>
+						<Route path="/logOut" element={<Logout />} />
 					</Route>
 
-					{/* <Route path="/logOut" element={<Logout />} /> */}
 					<Route index element={<LoginPage />} />
 					<Route path="*" element={<Error />} />
 				</Routes>
@@ -146,51 +146,53 @@ const Home = () => {
 				<table className="my-3 mx-5 " style={{ border: "1px solid" }}>
 					{/* <div className='watermark'>virendra katariya</div> */}
 					{/* <img src={logo} style={{opacity: 0.25;}}/> */}
-					<tr style={{ border: "1px solid" }}>
-						<th style={{ border: "1px solid" }}>Company</th>
-						<th style={{ border: "1px solid" }}>Contact</th>
-						<th style={{ border: "1px solid" }}>Country</th>
-					</tr>
-					<tr style={{ border: "1px solid" }}>
-						<td style={{ border: "1px solid" }}>
-							Alfreds Futterkiste
-						</td>
-						<td style={{ border: "1px solid" }}>Maria Anders</td>
-						<td style={{ border: "1px solid" }}>Germany</td>
-					</tr>
-					<tr style={{ border: "1px solid" }}>
-						<td style={{ border: "1px solid" }}>
-							Centro comercial Moctezuma
-						</td>
-						<td style={{ border: "1px solid" }}>Francisco Chang</td>
-						<td style={{ border: "1px solid" }}>Mexico</td>
-					</tr>
-					<tr style={{ border: "1px solid" }}>
-						<td style={{ border: "1px solid" }}>Ernst Handel</td>
-						<td style={{ border: "1px solid" }}>Roland Mendel</td>
-						<td style={{ border: "1px solid" }}>Austria</td>
-					</tr>
-					<tr style={{ border: "1px solid" }}>
-						<td style={{ border: "1px solid" }}>Island Trading</td>
-						<td style={{ border: "1px solid" }}>Helen Bennett</td>
-						<td style={{ border: "1px solid" }}>UK</td>
-					</tr>
-					<tr style={{ border: "1px solid" }}>
-						<td style={{ border: "1px solid" }}>
-							Laughing Bacchus Winecellars
-						</td>
-						<td style={{ border: "1px solid" }}>Yoshi Tannamuri</td>
-						<td style={{ border: "1px solid" }}>Canada</td>
-					</tr>
-					<tr style={{ border: "1px solid" }}>
-						<td style={{ border: "1px solid" }}>
-							Magazzini Alimentari Riuniti
-						</td>
-						<td style={{ border: "1px solid" }}>
-							Giovanni Rovelli
-						</td>
-						<td style={{ border: "1px solid" }}>Italy</td>
-					</tr>
+					<tbody>
+						<tr style={{ border: "1px solid" }}>
+							<th style={{ border: "1px solid" }}>Company</th>
+							<th style={{ border: "1px solid" }}>Contact</th>
+							<th style={{ border: "1px solid" }}>Country</th>
+						</tr>
+						<tr style={{ border: "1px solid" }}>
+							<td style={{ border: "1px solid" }}>
+								Alfreds Futterkiste
+							</td>
+							<td style={{ border: "1px solid" }}>Maria Anders</td>
+							<td style={{ border: "1px solid" }}>Germany</td>
+						</tr>
+						<tr style={{ border: "1px solid" }}>
+							<td style={{ border: "1px solid" }}>
+								Centro comercial Moctezuma
+							</td>
+							<td style={{ border: "1px solid" }}>Francisco Chang</td>
+							<td style={{ border: "1px solid" }}>Mexico</td>
+						</tr>
+						<tr style={{ border: "1px solid" }}>
+							<td style={{ border: "1px solid" }}>Ernst Handel</td>
+							<td style={{ border: "1px solid" }}>Roland Mendel</td>
+							<td style={{ border: "1px solid" }}>Austria</td>
+						</tr>
+						<tr style={{ border: "1px solid" }}>
+							<td style={{ border: "1px solid" }}>Island Trading</td>
+							<td style={{ border: "1px solid" }}>Helen Bennett</td>
+							<td style={{ border: "1px solid" }}>UK</td>
+						</tr>
+						<tr style={{ border: "1px solid" }}>
+							<td style={{ border: "1px solid" }}>
+								Laughing Bacchus Winecellars
+							</td>
+							<td style={{ border: "1px solid" }}>Yoshi Tannamuri</td>
+							<td style={{ border: "1px solid" }}>Canada</td>
+						</tr>
+						<tr style={{ border: "1px solid" }}>
+							<td style={{ border: "1px solid" }}>
+								Magazzini Alimentari Riuniti
+							</td>
+							<td style={{ border: "1px solid" }}>
+								Giovanni Rovelli
+							</td>
+							<td style={{ border: "1px solid" }}>Italy</td>
+						</tr>
+					</tbody>
 				</table>
 			</div>
 		</>
@@ -401,7 +403,21 @@ const SettingsBilling = () => {
 	);
 };
 
+const Logout = () => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
+	useEffect(() => {
+		localStorage.setItem("isLoggedIn", false);
+		dispatch(logOut())
+		navigate("/");
+	}, []);
+	return (
+		<>
+			hee
+		</>
+	)
+}
 
 const Error = () => {
 	return (

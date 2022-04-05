@@ -8,7 +8,10 @@ import {
 	FaPeace,
 	FaTasks,
 } from "react-icons/fa";
-import { MdMessage } from "react-icons/md";
+
+import { nanoid } from "nanoid";
+
+import { MdMessage, MdLogout } from "react-icons/md";
 import { BiAnalyse, BiSearch } from "react-icons/bi";
 import { BiCog } from "react-icons/bi";
 import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
@@ -90,7 +93,7 @@ const routes = [
 		],
 	},
 	{
-		path: "/settings",
+		path: "/settings1",
 		name: "Settings",
 		icon: <BiCog />,
 		exact: true,
@@ -113,7 +116,7 @@ const routes = [
 		],
 	},
 	{
-		path: "/settings",
+		path: "/settings2",
 		name: "Settings",
 		icon: <BiCog />,
 		exact: true,
@@ -135,11 +138,11 @@ const routes = [
 			},
 		],
 	},
-	//   {
-	//     path: "/logout",
-	//     name: "Logout",
-	//     icon: <AiFillHeart />,
-	//   },
+	  {
+	    path: "/logout",
+	    name: "Logout",
+	    icon: <MdLogout />,
+	  },
 ];
 
 const SideBar = ({ children }) => {
@@ -224,26 +227,8 @@ const SideBar = ({ children }) => {
 								<FaBars onClick={toggle} />
 							</div>
 						</div>
-						{/* <div className="search">
-              <div className="search_icon">
-                <BiSearch />
-              </div>
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.input
-                    initial="hidden"
-                    animate="show"
-                    exit="hidden"
-                    variants={inputAnimation}
-                    type="text"
-                    placeholder="Search"
-                    color="dark"
-                  />
-                )}
-              </AnimatePresence>
-            </div> */}
 						<section className="routes">
-							{routes.map((route, index) => {
+							{routes.map((route) => {
 								if (route.subRoutes) {
 									return (
 										<SidebarMenu
@@ -258,7 +243,8 @@ const SideBar = ({ children }) => {
 								return (
 									<NavLink
 										to={route.path}
-										key={index}
+										id={nanoid()}
+										key={nanoid()}
 										className="link"
 										// activeClassName="active"
 									>
@@ -279,6 +265,9 @@ const SideBar = ({ children }) => {
 									</NavLink>
 								);
 							})}
+							
+							
+								
 						</section>
 					</motion.div>
 					<main>{children}</main>
