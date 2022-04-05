@@ -124,11 +124,11 @@ const routes = [
       },
     ],
   },
-  {
-    path: "/saved",
-    name: "Saved",
-    icon: <AiFillHeart />,
-  },
+//   {
+//     path: "/logout",
+//     name: "Logout",
+//     icon: <AiFillHeart />,
+//   },
 ];
 
 const SideBar = ({ children }) => {
@@ -265,6 +265,11 @@ const SideBar = ({ children }) => {
                 );
               })}
             </section>
+			<button
+				onClick={() => {
+					dispatch(logOut());
+				}}
+			>Logout</button>
           </motion.div>
           <main>{children}</main>
         </div>

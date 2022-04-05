@@ -14,7 +14,7 @@ import { logIn, logOut } from '../../store'
 const LoginPage = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+	// const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 	const dispatch = useDispatch();
 
 	const navigate = useNavigate();
@@ -28,7 +28,7 @@ const LoginPage = () => {
 	};
 	const clickHandler = (e) => {
 		// console.log(email);
-		if(email === "admin@gmail.com" && password === "Admin") {
+		if(email === "admin@admin.io" && password === "admin") {
 			e.preventDefault();	
 			navigate("/home");
 			dispatch(logIn());

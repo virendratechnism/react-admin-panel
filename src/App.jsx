@@ -75,19 +75,10 @@ const SidebarLayout = () => {
 };
 
 const RoutingHandler = () => {
-	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-	const dispatch = useDispatch();
-	// const navigate = useNavigate();
 
 	return (
 		<>
 			<Router>
-					{/* {!isLoggedIn 
-					?
-						navigate('/')
-					:
-						""
-					} */}
 				<Routes>
 					<Route element={<SidebarLayout />}>
 						<Route path="/home" element={<Home />} />
@@ -119,16 +110,16 @@ const RoutingHandler = () => {
 	);
 };
 const Home = () => {
-	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-	const dispatch = useDispatch();
+	// const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+	// const dispatch = useDispatch();
 
 	return (
 		<>
 			<h1>
 				Home Page{" "}
-				{isLoggedIn ? "Your are Logged In" : "Your are Not Logged In"}
+				{/* {isLoggedIn ? "Your are Logged In" : "Your are Not Logged In"} */}
 			</h1>
-			<button
+			{/* <button
 				onClick={() => {
 					dispatch(logIn());
 				}}
@@ -141,7 +132,7 @@ const Home = () => {
 				}}
 			>
 				LogOut
-			</button>
+			</button> */}
 			<div className="">
 				<table className="my-3 mx-5 " style={{ border: "1px solid" }}>
 					{/* <div className='watermark'>virendra katariya</div> */}
@@ -400,6 +391,9 @@ const SettingsBilling = () => {
 		</>
 	);
 };
+
+
+
 const Error = () => {
 	return (
 		<>
