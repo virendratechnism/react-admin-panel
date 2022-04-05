@@ -59,8 +59,9 @@ const App = () => {
 
 const SidebarLayout = () => (
 	<>
-		<SideBar />
-		<Outlet />
+		<SideBar>
+			<Outlet />
+		</SideBar>
 	</>
 );
 
