@@ -25,7 +25,7 @@ import {
 	Row,
 } from "react-bootstrap";
 
-import { show, hide } from "./store";
+import { show, hide, logIn, logOut } from "./store";
 import { useDispatch, useSelector } from "react-redux";
 
 // * Pages Import
@@ -66,6 +66,8 @@ const SidebarLayout = () => (
 );
 
 const RoutingHandler = () => {
+	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
 	return (
 		<>
 			<Router>
@@ -90,8 +92,6 @@ const RoutingHandler = () => {
 							element={<SettingsBilling />}
 						/>
 					</Route>
-
-					{/* <Route path="/logOut" element={<Logout />} /> */}
 					<Route index element={<LoginPage />} />
 					<Route path="*" element={<Error />} />
 				</Routes>
@@ -100,9 +100,29 @@ const RoutingHandler = () => {
 	);
 };
 const Home = () => {
+	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+	const dispatch = useDispatch();
+
 	return (
 		<>
-			<h1>Home Page</h1>
+			<h1>
+				Home Page{" "}
+				{isLoggedIn ? "Your are Logged In" : "Your are Not Logged In"}
+			</h1>
+			<button
+				onClick={() => {
+					dispatch(logIn());
+				}}
+			>
+				Log
+			</button>
+			<button
+				onClick={() => {
+					dispatch(logOut());
+				}}
+			>
+				LogOut
+			</button>
 			<div className="">
 				<table className="my-3 mx-5 " style={{ border: "1px solid" }}>
 					{/* <div className='watermark'>virendra katariya</div> */}

@@ -6,8 +6,14 @@ import { useNavigate } from "react-router-dom";
 
 // import logo from "../../logo.svg";
 import logo from '.././../image/logo.webp'
+import { useSelector, useDispatch } from "react-redux";
+
+import { logIn, logOut } from '../../store'
 
 const LoginPage = () => {
+	const auth = useSelector((state) => state.auth.auth);
+	const dispatch = useDispatch();
+
 	const navigate = useNavigate();
 
 	const companyName = "TaxPatra";
@@ -66,6 +72,7 @@ const LoginPage = () => {
 								className="login__btn"
 								onClick={(e) => {
 									e.preventDefault();
+									dispatch(logIn());
 									navigate("/home");
 								}}
 							>
