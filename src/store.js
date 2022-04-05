@@ -48,9 +48,5 @@ export const store = configureStore({
 	},
 })
 
-<<<<<<< HEAD
-export const { show, hide, logIn, logOut } = openSweatSlice.actions
-=======
 export const { show, hide } = openSweatSlice.actions
 export const { logIn, logOut } = authSlice.actions
->>>>>>> 5f295cc3bf724962410a37a615c602f9ec9c078f
