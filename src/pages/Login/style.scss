@@ -1,0 +1,128 @@
+$primary: #fff;
+$theme: #be1850;
+$light1: #f3f4f6;
+$light2: #e5e7e8;
+$dark1: #1f2937;
+$dark2: #4b5563;
+$dark3: #9ca3af;
+$red: #dc2626;
+$green: #32ca4b;
+
+$shadow_color: hsl(215deg 14% 70%);
+
+// $card_width: 500px;
+$card_width: 400px;
+// $card_height: 650px;
+$card_height: 600px;
+
+// $border_radius: 0.875em;
+$border_radius: 0.4em;
+
+.login__page__bg {
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	// background: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+	background: $light1;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.title {
+		color: $dark2;
+		letter-spacing: 1px;
+	}
+
+	.logo {
+		margin: 1em 0;
+		max-width: 100%;
+		width: 75px;
+	}
+}
+
+.login__card {
+	background: $primary;
+	color: $dark1;
+	width: $card_width;
+	height: $card_height;
+
+	border: 0px;
+	border-radius: $border_radius;
+
+	box-shadow: 2px 6px 20px 0px $shadow_color;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	.login__form {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		.form__input {
+			display: block;
+			margin: 1em 1.875em;
+			padding: 0.5em;
+
+			label {
+				margin-left: 5px;
+				margin-bottom: 1em;
+
+				&:not(#showPasswordInput)::after {
+					content: " *";
+					color: rgb(255, 100, 100);
+				}
+			}
+
+			input:not(#checkbox) {
+				margin-top: 10px;
+				border: 1px solid grey;
+
+				border-radius: $border_radius;
+
+				display: block;
+				width: 100%;
+				padding: 0.875em;
+			}
+
+			.login__btn {
+				width: 100%;
+				padding: 0.5em;
+				background: $green;
+
+				font-size: larger;
+				font-weight: 600;
+				letter-spacing: 1px;
+
+				color: $light1;
+				padding: 0.5em;
+
+				border: 0px;
+				border-radius: $border_radius;
+
+				&:hover {
+					opacity: 0.9;
+				}
+			}
+		}
+	}
+}
+
+#checkbox__form__input {
+	margin-right: 5px;
+	margin-bottom: 1.5em;
+	margin-left: 2.1em;
+	position: relative;
+	top: -10px;
+}
