@@ -57,13 +57,22 @@ const App = () => {
 	);
 };
 
-const SidebarLayout = () => (
-	<>
+const SidebarLayout = () => {
+	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		if (!isLoggedIn) {
+			navigate("/");
+		}
+	})
+
+	return <>
 		<SideBar>
 			<Outlet />
 		</SideBar>
 	</>
-);
+};
 
 const RoutingHandler = () => {
 	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
