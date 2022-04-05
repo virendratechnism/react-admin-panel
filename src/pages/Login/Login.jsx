@@ -1,13 +1,16 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./style.scss"; // main file :: Development
 // import "./style.min.css"; // minified file :: Production
 
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 // import logo from "../../logo.svg";
 import logo from '.././../image/logo.webp'
 
 const LoginPage = () => {
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
 	const navigate = useNavigate();
 
 	const companyName = "TaxPatra";
@@ -17,6 +20,25 @@ const LoginPage = () => {
 		if (e.target.checked === true) passwordInput.current.type = "text";
 		else passwordInput.current.type = "password";
 	};
+	const clickHandler = (e) => {
+		// console.log(email);
+		if(email === "admin@gmail.com" && password === "Admin") {
+			e.preventDefault();	
+			navigate("/home");
+		} else {
+			e.preventDefault();	
+			
+			swal({
+				title: "Login Fail",
+				text: "Email OR password are not match",
+				button: true,
+				buttonText: "Action",
+				dangerMode: true,
+				closeOnClickOutside: false,
+				icon: "warning",
+			})
+		}
+	}
 
 	return (
 		<div className="login__page__bg">
@@ -35,6 +57,7 @@ const LoginPage = () => {
 								name="email"
 								id="email"
 								placeholder="your-awesome@mail.com"
+								onChange={(e) => setEmail(e.target.value)}
 							/>
 						</div>
 						<div className="form__input">
@@ -45,6 +68,7 @@ const LoginPage = () => {
 								id="password"
 								placeholder="secret"
 								ref={passwordInput}
+								onChange={(e) => setPassword(e.target.value)}
 							/>
 						</div>
 						<div id="checkbox__form__input" className="form__input">
@@ -64,10 +88,7 @@ const LoginPage = () => {
 						<div className="form__input">
 							<button
 								className="login__btn"
-								onClick={(e) => {
-									e.preventDefault();
-									navigate("/home");
-								}}
+								onClick={clickHandler}
 							>
 								Login
 							</button>

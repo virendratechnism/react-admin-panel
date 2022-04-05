@@ -2,6 +2,7 @@ import { configureStore, createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
 	openSweat: false,
+	login: false
 }
 
 const openSweatSlice = createSlice({
@@ -15,6 +16,12 @@ const openSweatSlice = createSlice({
 		hide: (state) => {
 			state.openSweat = false
 		},
+		logIn: (state) => {
+			state.login = true
+		},
+		logOut: (state) => {
+			state.login = false
+		},
 	}
 })
 
@@ -25,4 +32,4 @@ export const store = configureStore({
 	},
 })
 
-export const { show, hide } = openSweatSlice.actions
+export const { show, hide, logIn, logOut } = openSweatSlice.actions
