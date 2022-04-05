@@ -8,7 +8,7 @@ import { BsCartCheck } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import SidebarMenu from "./SidebarMenu";
-import logo from '../image/logo.png';
+import logo from '../image/logo.webp';
 
 const routes = [
   {

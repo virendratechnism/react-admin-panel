@@ -15,7 +15,7 @@ import ChartView from "./component/ChartView";
 import MyCalendar from "./component/MyCalendar";
 import TableView from "./component/TableView";
 import ProfilePage from "./component/ProfilePage";
-import logo from "./image/logo.png";
+import logo from "./image/logo.webp";
 import {
 	Button,
 	Col,

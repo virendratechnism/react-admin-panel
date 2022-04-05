@@ -4,7 +4,8 @@ import "./style.scss"; // main file :: Development
 
 import { useNavigate } from "react-router-dom";
 
-import logo from "../../logo.svg";
+// import logo from "../../logo.svg";
+import logo from '.././../image/logo.webp'
 
 const LoginPage = () => {
 	const navigate = useNavigate();
@@ -22,7 +23,7 @@ const LoginPage = () => {
 			<section className="login__card">
 				<section className="header">
 					<img className="logo" src={logo} />
-					<h1 className="title">{companyName}</h1>
+					<h1 className="title" style={{color:"#4eb549"}}>{companyName}</h1>
 				</section>
 
 				<div className="login__form">
