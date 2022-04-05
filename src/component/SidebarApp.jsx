@@ -233,6 +233,7 @@ const SideBar = ({ children }) => {
 									return (
 										<SidebarMenu
 											setIsOpen={setIsOpen}
+											key={nanoid()}
 											route={route}
 											showAnimation={showAnimation}
 											isOpen={isOpen}

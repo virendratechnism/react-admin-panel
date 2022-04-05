@@ -25,7 +25,7 @@ const LoginPage = () => {
 	useEffect(() => {
 		const authState = localStorage.getItem("isLoggedIn");
 
-		console.log(authState)
+		// console.log(authState)
 		if (authState == "true") {
 			// console.log("isLoggedIn")
 			navigate("/home");

@@ -14,13 +14,7 @@ const openSweatSlice = createSlice({
 
 		hide: (state) => {
 			state.openSweat = false
-		},
-		logIn: (state) => {
-			state.login = true
-		},
-		logOut: (state) => {
-			state.login = false
-		},
+		}
 	}
 })
 

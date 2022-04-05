@@ -59,7 +59,7 @@ const App = () => {
 						icon: "warning",
 					});
 					dispatch(hide());
-				}, 1000)}
+				})}
 
 			<RoutingHandler />
 		</>
@@ -199,6 +199,7 @@ const Home = () => {
 	);
 };
 const SweetAlert = () => {
+	const openSweat = useSelector((state) => state.alertBox.openSweat);
 	const dispatch = useDispatch();
 
 	return (
