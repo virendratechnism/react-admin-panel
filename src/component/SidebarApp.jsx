@@ -280,12 +280,6 @@ const SideBar = ({ children }) => {
 								);
 							})}
 						</section>
-						<button
-							onClick={() => dispatch(logOut())}
-							className="logout__btn"
-						>
-							Logout
-						</button>
 					</motion.div>
 					<main>{children}</main>
 				</div>
