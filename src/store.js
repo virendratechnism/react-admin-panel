@@ -1,8 +1,7 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-	openSweat: false,
-	login: false
+	openSweat: false
 }
 
 const openSweatSlice = createSlice({

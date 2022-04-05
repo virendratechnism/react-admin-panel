@@ -14,8 +14,7 @@ import { logIn, logOut } from '../../store'
 const LoginPage = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	
-	const auth = useSelector((state) => state.auth.auth);
+	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 	const dispatch = useDispatch();
 
 	const navigate = useNavigate();
@@ -32,9 +31,12 @@ const LoginPage = () => {
 		if(email === "admin@gmail.com" && password === "Admin") {
 			e.preventDefault();	
 			navigate("/home");
+			dispatch(logIn());
 		} else {
 			e.preventDefault();	
-			
+
+			dispatch(logOut());
+
 			swal({
 				title: "Login Fail",
 				text: "Email OR password are not match",

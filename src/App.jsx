@@ -67,10 +67,18 @@ const SidebarLayout = () => (
 
 const RoutingHandler = () => {
 	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+	const dispatch = useDispatch();
+	// const navigate = useNavigate();
 
 	return (
 		<>
 			<Router>
+					{/* {!isLoggedIn 
+					?
+						navigate('/')
+					:
+						""
+					} */}
 				<Routes>
 					<Route element={<SidebarLayout />}>
 						<Route path="/home" element={<Home />} />
@@ -92,6 +100,8 @@ const RoutingHandler = () => {
 							element={<SettingsBilling />}
 						/>
 					</Route>
+
+					{/* <Route path="/logOut" element={<Logout />} /> */}
 					<Route index element={<LoginPage />} />
 					<Route path="*" element={<Error />} />
 				</Routes>
