@@ -7,10 +7,19 @@ import swal from "sweetalert";
 
 // import logo from "../../logo.svg";
 import logo from '.././../image/logo.webp'
+import { useSelector, useDispatch } from "react-redux";
+
+import { logIn, logOut } from '../../store'
 
 const LoginPage = () => {
+<<<<<<< HEAD
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+=======
+	const auth = useSelector((state) => state.auth.auth);
+	const dispatch = useDispatch();
+
+>>>>>>> 5f295cc3bf724962410a37a615c602f9ec9c078f
 	const navigate = useNavigate();
 
 	const companyName = "TaxPatra";
@@ -88,7 +97,15 @@ const LoginPage = () => {
 						<div className="form__input">
 							<button
 								className="login__btn"
+<<<<<<< HEAD
 								onClick={clickHandler}
+=======
+								onClick={(e) => {
+									e.preventDefault();
+									dispatch(logIn());
+									navigate("/home");
+								}}
+>>>>>>> 5f295cc3bf724962410a37a615c602f9ec9c078f
 							>
 								Login
 							</button>
