@@ -43,7 +43,7 @@ const ProfilePage = () => {
       setPhoto(photo + 1);
     if (telephonic != 745)
       setTelephonic(telephonic + 1);
-  });
+  }, []);
   return (
     <>
       <div>

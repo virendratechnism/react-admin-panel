@@ -42,7 +42,7 @@ const App = () => {
 		if (authState) {
 			dispatch(logIn());
 		}
-	})
+	}, [])
 
 	return (
 		<>
@@ -74,7 +74,7 @@ const SidebarLayout = () => {
 		if (!isLoggedIn) {
 			navigate("/");
 		}
-	})
+	}, [])
 
 	return <>
 		<SideBar>
