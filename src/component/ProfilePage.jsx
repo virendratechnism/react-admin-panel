@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Form, FormControl, InputGroup, Modal, Row } from "react-bootstrap";
-import '../profile.css'
+import '../profile.scss'
 
 const ProfilePage = () => {
   const [clients, setClients] = useState(0);
