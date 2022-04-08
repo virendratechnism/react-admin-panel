@@ -30,6 +30,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // * Pages Import
 import LoginPage from "./pages/Login/Login";
+import Quill from "./component/Quill";
 
 const App = () => {
 	const openSweat = useSelector((state) => state.alertBox.openSweat);
@@ -379,6 +380,7 @@ const Billing = () => {
 	return (
 		<>
 			<h1>Billing Page</h1>
+			<Quill />
 		</>
 	);
 };
